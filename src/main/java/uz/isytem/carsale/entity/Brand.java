@@ -1,24 +1,26 @@
 package uz.isytem.carsale.entity;
+
 import lombok.Getter;
 import lombok.Setter;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity
-@Table(name = ("process_statuses"))
-public class ProcessStatus {
+@Table(name = ("brands"))
+public class Brand {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Integer id;
 
     private String name;
 
-    @Column(name = ("display_name"))
-    private String displayName;
+    private String logo;
+
+    private Boolean status;
 
     @Column(name = ("created_at"))
     private LocalDateTime createdAt;
@@ -28,4 +30,5 @@ public class ProcessStatus {
 
     @Column(name = ("deleted_at"))
     private LocalDateTime deletedAt;
+
 }
