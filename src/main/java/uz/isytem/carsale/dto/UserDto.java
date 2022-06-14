@@ -25,6 +25,7 @@ public class UserDto {
     @Email
     private String email;
     private String token;
+    @NotBlank(message = "Invalid name")
     private String firstName;
     private String lastName;
     private String avatar;
