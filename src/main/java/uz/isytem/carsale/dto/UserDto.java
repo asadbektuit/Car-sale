@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDto {
     private Integer id;
-    private UserTypeDto userType;
+    private UserTypeDto userType;//44
     @NotBlank(message = "Invalid username")
     private String username;
     @NotBlank(message = "Invalid password")
