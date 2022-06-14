@@ -14,18 +14,6 @@ public class Application {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = ("type"))
-    private Integer typeId;
-
-    @Column(name = ("user_id"))
-    private Integer userId;
-
-    @Column(name = ("merchant_id"))
-    private Integer merchantId;
-
-    @Column(name = ("vehicle_id"))
-    private Integer vehicleId;
-
     @Column(name = ("vehicle_details"))
     private String vehicleDetails;
 
@@ -40,9 +28,6 @@ public class Application {
     @Column(name = ("condition_price"))
     private Double  conditionPrice;
 
-    @Column(name = ("process_status_id"))
-    private Integer processStatusId;
-
     @Column(name = ("created_at"))
     private LocalDateTime createdAt;
 
@@ -52,10 +37,38 @@ public class Application {
     @Column(name = ("deleted_at"))
     private LocalDateTime deletedAt;
 
+    @ManyToOne
+    @JoinColumn(name = ("application_id"),insertable = false,updatable = false)
+    private Application application;
 
+    @Column(name = ("application_id"))
+    private Integer applicationId;
 
+    @ManyToOne
+    @JoinColumn(name = ("vehicle_id"),insertable = false,updatable = false)
+    private Vehicle vehicle;
 
+    @Column(name = ("vehicle_id"))
+    private Integer vehicleId;
 
+    @ManyToOne
+    @JoinColumn(name = ("user_id"),insertable = false,updatable = false)
+    private User user;
 
+    @Column(name = ("user_id"))
+    private Integer userId;
 
+    @ManyToOne
+    @JoinColumn(name = ("process_status_id"),insertable = false,updatable = false)
+    private ProcessStatus processStatus;
+
+    @Column(name = ("process_status_id"))
+    private Integer processStatusId;
+
+    @ManyToOne
+    @JoinColumn(name = ("merchant_id"),insertable = false,updatable = false)
+    private Merchant merchant;
+
+    @Column(name = ("merchant_id"))
+    private Integer merchantId;
 }
